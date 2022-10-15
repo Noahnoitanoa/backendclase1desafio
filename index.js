@@ -1,40 +1,55 @@
-function probar(){
-    const nombre= 'noah'
+class Contenedor{
 
-let saludo = `hola, 
-soy ${nombre}`
-let edad = 40
+    #productos;
+    constructor() {
+        this.#productos = []
+   }
+    
 
-console.log(nombre)
-console.log(edad)
-console.log(saludo)
+   save(objeto) {
+    this.#productos.push(objeto)
+    }
 
-edad += 5
+   
+    getById(id){
+      const objetoBuscado = productos.find((p)=>p.id===id)
+      if(objetoBuscado===undefined){
+          return null
+      }else{
+          return objetoBuscado
+      }
+     }
 
-console.log(edad)
+     getAll(){
+        return  this.#productosproductos
+    }
 
-const diccionario = {
-    color: 'rojo',
-    cuidad: 'rio'
-}
+    deleteById(id){
+        for (let i=0;i<productos.length;i++){
+            if (productos[i].id===id){
+                productos.splice(i, 1)
+            }
+        }
+    }
 
-// const array = {
-//     'o': 'mariano',
-//     '1': 'willa',
-//     '2': 'laura'
+    deleteAll(){
+        productos.splice(0, productos.length+1)
+    }
 
-// }
+  }
 
-const array = [
-    mariano,
-     will,
-    laura,
 
-]
+  const prodTest = new Contenedor
+  
+  console.log('Guarda datos (método save)')
+  prodTest.save(1, '111', 300, './img/pintauñas pack.jpg')
+  prodTest.save(2, '111', 250, './img/set iniciacion acrilico.jpg')
+  console.log(productos)
 
-console.log(array)
-console.log(array['o'])
+  console.log('Devuelve el elemento con id')
+  console.log(prodTest.getById(2))
 
-}
+  console.log('Retorno array con todos sus elementos')
+  console.log(prodTest.getAll())
 
-probar()
+  
